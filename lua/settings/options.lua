@@ -16,7 +16,7 @@ vim.o.scrolloff = 4
 vim.o.list = true
 vim.opt.listchars = {
     tab = '  ',
-    leadtab = ' ',
+    leadtab = '│ ',
     trail = '§',
     leadmultispace = '│⋅⋅⋅',
 }
@@ -49,3 +49,14 @@ vim.g.netrw_banner = 0        -- no banner
 vim.g.netrw_usetab = 1        -- use netrw-<C-Tab> mapping
 vim.g.netrw_wiw = 32          -- window width (cols)
 vim.g.shada = "'0f0"          -- what to save in the ShaDa file
+
+-- autocmds
+vim.api.nvim_create_autocmd('OptionSet', {
+    group = vim.api.nvim_create_augroup('OptionSetAugroup', { clear = true }),
+    pattern = 'shiftwidth',
+    callback = function()
+        vim.opt.listchars:append({
+            leadmultispace = '│' .. string.rep('·', vim.o.shiftwidth - 1)
+        })
+    end,
+})
