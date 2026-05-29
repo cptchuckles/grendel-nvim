@@ -3,11 +3,11 @@ vim.g.mapleader = '\\'
 vim.g.localleader = ','
 
 -- appearance and behavior
-vim.o.signcolumn = "yes"
+vim.o.signcolumn = 'yes'
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.cursorline = true
-vim.o.colorcolumn = "100"
+vim.o.colorcolumn = '100'
 vim.o.breakindent = true
 vim.o.laststatus = 2
 vim.o.cmdheight = 1
@@ -15,19 +15,20 @@ vim.o.scrolloff = 4
 
 vim.o.list = true
 vim.opt.listchars = {
-    tab = "  ",
-    leadtab = " ",
-    trail = "§",
-    leadmultispace = "│⋅⋅⋅",
+    tab = '  ',
+    leadtab = ' ',
+    trail = '§',
+    leadmultispace = '│⋅⋅⋅',
 }
 
 vim.o.pumblend = 0
-vim.o.pumborder = "rounded"
-vim.o.winborder = "rounded"
+vim.o.pumborder = 'rounded'
+vim.o.winborder = 'rounded'
 
-vim.opt.wildignore:append({ "*.o", "*.a", "*.obj", "*.class", "*.s" })
+vim.opt.wildignore:append({ '*.o', '*.a', '*.obj', '*.class', '*.s' })
 vim.o.wildmenu = true
-vim.o.wildmode = "full"
+vim.o.wildmode = 'full'
+vim.opt.wildoptions = { 'fuzzy', 'pum' }
 
 -- editing settings
 vim.o.autocomplete = true
@@ -37,6 +38,6 @@ vim.o.tabstop = 4
 vim.o.softtabstop = 4
 vim.o.shiftwidth = 4
 vim.o.smartindent = true
-vim.opt.cinwords:append({ "case", "elif", "match" })
-vim.opt.clipboard:append("unnamedplus")
-vim.opt.completeopt:append({ "fuzzy", "noinsert", "preview" })
+vim.opt.cinwords:append({ 'case', 'elif', 'match' })
+vim.opt.clipboard:append('unnamedplus')
+vim.opt.completeopt:append({ 'fuzzy', 'menu', 'menuone', 'noselect', 'preview' })
