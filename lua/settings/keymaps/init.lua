@@ -44,6 +44,10 @@ vim.keymap.set('v', '<', '<gv', { desc = 'Un-indent visual selection' })
 vim.keymap.set('n', 'g/', [[<cmd>lvimgrep //gj %<CR><cmd>lopen<CR>]], { desc = 'Fill location list with search results' })
 
 vim.keymap.set('n', '<A-i>', vim.diagnostic.open_float, { desc = 'Show floating diagnostic at cursor' })
+vim.keymap.set('n', '<leader>dd', vim.diagnostic.setqflist, { desc = 'Set Qickfix list with diagnostics' })
+
+vim.keymap.set('n', '<A-a>', vim.lsp.buf.code_action, { desc = 'Lsp code actions' })
+vim.keymap.set({ 'i', 'n' }, '<A-s>', vim.lsp.buf.signature_help, { desc = 'Lsp signature help' })
 
 -- autocommands
 vim.api.nvim_create_autocmd('FileType', {

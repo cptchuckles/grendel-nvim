@@ -1,6 +1,6 @@
 local ts_select = require('nvim-treesitter-textobjects.select')
 local ts_move = require('nvim-treesitter-textobjects.move')
-local ts_repeat_move = require('nvim-treesitter-textobjects.repeatable_move')
+-- local ts_repeat_move = require('nvim-treesitter-textobjects.repeatable_move')
 local ts_swap = require('nvim-treesitter-textobjects.swap')
 
 vim.keymap.set('n', '<leader>a', function()

@@ -13,9 +13,9 @@ M.setup = function(augroup)
     vim.api.nvim_create_autocmd('LspAttach', {
         group = augroup,
         callback = function(ev)
-            vim.api.nvim_buf_set_keymap(ev.buf, 'n', '<C-]>', '<cmd>Telescope lsp_definitions<CR>', { desc = 'Telescope lsp_definitions' })
-            vim.api.nvim_buf_set_keymap(ev.buf, 'n', 'g<C-]>', '<cmd>Telescope lsp_references<CR>', { desc = 'Telescope lsp_definitions' })
-            vim.api.nvim_buf_set_keymap(ev.buf, 'n', '<leader>di', '<cmd>Telescope lsp_implementations<CR>', { desc = 'Telescope lsp_implementations' })
+            vim.keymap.set('n', '<C-]>', ts.lsp_definitions, { buffer = ev.buf, desc = 'Telescope lsp_definitions' })
+            vim.keymap.set('n', 'g<C-]>', ts.lsp_references, { buffer = ev.buf, desc = 'Telescope lsp_definitions' })
+            vim.keymap.set('n', '<leader>di', ts.lsp_implementations, { buffer = ev.buf, desc = 'Telescope lsp_implementations' })
         end,
     })
 end
