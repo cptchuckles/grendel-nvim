@@ -1,5 +1,9 @@
 {
   "plugins": {
+    "catppuccin-nvim": {
+      "rev": "8edd468af4d63212b84d69b2ddb5ffc9023ef5eb",
+      "src": "https://github.com/catppuccin/nvim"
+    },
     "mason-lspconfig.nvim": {
       "rev": "7b01e2974a47d489bb92f47a41e4c0088ea8f86e",
       "src": "https://github.com/mason-org/mason-lspconfig.nvim"
@@ -31,6 +35,10 @@
     "telescope.nvim": {
       "rev": "7d324792b7943e4aa16ad007212e6acc6f9fe335",
       "src": "https://github.com/nvim-telescope/telescope.nvim"
+    },
+    "tokyonight.nvim": {
+      "rev": "cdc07ac78467a233fd62c493de29a17e0cf2b2b6",
+      "src": "https://github.com/folke/tokyonight.nvim"
     },
     "tree-sitter-manager.nvim": {
       "rev": "bb66b815aff01e87b2e26be995116be8d2f91474",

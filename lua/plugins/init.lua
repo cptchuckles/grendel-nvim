@@ -12,6 +12,9 @@ vim.pack.add({
     gh('mason-org/mason.nvim'),
     gh('mason-org/mason-lspconfig.nvim'),
     gh('seblyng/roslyn.nvim'),
+
+    { src = gh('catppuccin/nvim'), name = 'catppuccin-nvim', },
+    gh('folke/tokyonight.nvim'),
 })
 
 require('plugins.telescope')
