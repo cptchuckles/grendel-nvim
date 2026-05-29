@@ -27,8 +27,12 @@ vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = 'Move to window to right' })
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Half-page down, center cursor' })
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Half-page up, center cursor' })
 
-vim.keymap.set('n', ']d', function() vim.diagnostic.goto_next({ float = true }) end, { desc = 'Jump to next diagnostic with float' })
-vim.keymap.set('n', '[d', function() vim.diagnostic.goto_prev({ float = true }) end, { desc = 'Jump to prev diagnostic with float' })
+vim.keymap.set('n', ']d', function()
+    vim.diagnostic.jump({ diagnostic = vim.diagnostic.get_next(), float = true })
+end, { desc = 'Jump to next diagnostic with float' })
+vim.keymap.set('n', '[d', function()
+    vim.diagnostic.jump({ diagnostic = vim.diagnostic.get_prev(), float = true })
+end, { desc = 'Jump to prev diagnostic with float' })
 
 -- editing
 vim.keymap.set('n', '<A-j>', '<cmd>move .+1<CR>==', { desc = 'Move current line down' })
@@ -38,6 +42,8 @@ vim.keymap.set('v', '<A-j>', [[:move '>+1<CR>gv=gv]], { desc = 'Move selected li
 vim.keymap.set('v', '>', '>gv', { desc = 'Indent visual selection' })
 vim.keymap.set('v', '<', '<gv', { desc = 'Un-indent visual selection' })
 vim.keymap.set('n', 'g/', [[<cmd>lvimgrep //gj %<CR><cmd>lopen<CR>]], { desc = 'Fill location list with search results' })
+
+vim.keymap.set('n', '<A-i>', vim.diagnostic.open_float, { desc = 'Show floating diagnostic at cursor' })
 
 -- autocommands
 vim.api.nvim_create_autocmd('FileType', {
