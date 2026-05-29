@@ -50,6 +50,7 @@ vim.api.nvim_create_autocmd('FileType', {
     group = vim.api.nvim_create_augroup('QuickCloseBuffers', { clear = true }),
     pattern = { 'help', 'netrw', 'qf' },
     callback = function(ev)
+vim.cmd.lclose()
         vim.api.nvim_buf_set_keymap(ev.buf, 'n', 'q', '<C-w>q', { desc = 'Quick-close buffers for some filetypes' })
     end,
 })
