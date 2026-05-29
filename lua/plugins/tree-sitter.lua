@@ -28,3 +28,20 @@ require('tree-sitter-manager').setup({
         'json',
     },
 })
+
+require('nvim-treesitter-textobjects').setup({
+    select = {
+        enable = true,
+        lookahead = true,
+        include_surrounding_whitespace = false,
+    },
+    swap = {
+        enable = true,
+    },
+    move = {
+        enable = true,
+        set_jumps = true, -- whether to set jumps in the jumplist
+    },
+})
+
+require('settings.keymaps.tree-sitter')

@@ -7,6 +7,7 @@ vim.pack.add({
     gh('nvim-telescope/telescope-fzf-native.nvim'),
 
     gh('romus204/tree-sitter-manager.nvim'),
+    { src = gh('nvim-treesitter/nvim-treesitter-textobjects'), version = 'main', },
 
     gh('neovim/nvim-lspconfig'),
     gh('mason-org/mason.nvim'),
