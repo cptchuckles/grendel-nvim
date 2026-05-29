@@ -26,12 +26,12 @@ vim.api.nvim_create_autocmd('ColorScheme', {
 
 vim.api.nvim_create_user_command('ClearBg', function()
     vim.g.clearbg = not vim.g.clearbg
-    vim.api.nvim_command('colorscheme ' .. vim.g.colors_name)
+    vim.cmd.colorscheme(vim.g.colors_name)
 end, { desc = 'Toggle g:clearbg and reset current colorscheme' })
 
 local scheme = vim.fn.environ()['NVIM_COLORSCHEME'] or 'default'
 local succor = pcall(function()
-    vim.api.nvim_command('colorscheme ' .. scheme)
+    vim.cmd.colorscheme(scheme)
 end)
 if succor == false then
     print('Colorscheme not found: ' .. scheme)
