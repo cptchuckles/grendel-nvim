@@ -10,7 +10,6 @@ for _, sign in ipairs(signs) do
 	vim.fn.sign_define(sign.name, {
 		texthl = sign.name,
 		text   = sign.text,
-		numhl  = "",
 	})
     signs_text[sign.severity] = sign.text
 end
