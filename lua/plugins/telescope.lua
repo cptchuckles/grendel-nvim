@@ -9,6 +9,7 @@ ts.setup({
         },
     },
     defaults = {
+        sorting_strategy = 'ascending',
         prompt_prefix = ' ',
         selection_caret = ' ',
         multi_icon = ' ',
