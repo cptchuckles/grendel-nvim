@@ -7,6 +7,7 @@ vim.pack.add({
     gh'nvim-telescope/telescope.nvim',
     gh'nvim-telescope/telescope-ui-select.nvim',
     gh'nvim-telescope/telescope-fzf-native.nvim',
+    gh'folke/trouble.nvim',
 
     gh'romus204/tree-sitter-manager.nvim',
     { src = gh'nvim-treesitter/nvim-treesitter-textobjects', version = 'main', },
@@ -21,5 +22,6 @@ vim.pack.add({
 })
 
 require('plugins.telescope')
+require('plugins.trouble')
 require('plugins.tree-sitter')
 require('plugins.lsp')
