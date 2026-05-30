@@ -11,6 +11,9 @@ ts.setup({
     defaults = {
         prompt_prefix = ' ',
         selection_caret = ' ',
+        multi_icon = ' ',
+        msg_bg_fillchar = '?',
+
         path_display = { 'truncate' },
         dynamic_preview_title = true,
 
