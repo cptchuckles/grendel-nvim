@@ -1,6 +1,7 @@
 -- essential settings
 vim.g.mapleader = '\\'
 vim.g.localleader = ','
+vim.opt.path:append('**')
 
 -- appearance and behavior
 vim.o.signcolumn = 'yes'
@@ -12,16 +13,17 @@ vim.o.breakindent = true
 vim.o.laststatus = 2
 vim.o.cmdheight = 1
 vim.o.scrolloff = 4
+vim.o.visualbell = true
 
 vim.o.list = true
 vim.opt.listchars = {
-    tab = '  ',
+    tab = '→ ',
     leadtab = '│ ',
     trail = '§',
     leadmultispace = '│⋅⋅⋅',
 }
 vim.api.nvim_create_autocmd('OptionSet', {
-    group = vim.api.nvim_create_augroup('OptionSetAugroup', { clear = true }),
+    group = vim.api.nvim_create_augroup('ShiftwidthChangedAugroup', { clear = true }),
     pattern = 'shiftwidth',
     callback = function()
         vim.opt.listchars:append({
@@ -31,6 +33,8 @@ vim.api.nvim_create_autocmd('OptionSet', {
 })
 
 vim.o.pumheight = 12
+vim.o.pumwidth = 20
+vim.o.pummaxwidth = 40
 vim.o.pumblend = 0
 vim.o.pumborder = 'rounded'
 vim.o.winborder = 'rounded'
@@ -44,11 +48,12 @@ vim.o.shiftwidth = 4
 vim.o.smartindent = true
 vim.opt.cinwords:append({ 'case', 'elif', 'match' })
 vim.opt.clipboard:append('unnamedplus')
+vim.o.virtualedit = 'block'
 
 -- completion settings
 vim.opt.autocomplete = true
 vim.opt.complete:append('o')
-vim.opt.completeopt:append({ 'fuzzy', 'menu', 'menuone', 'noselect', 'preview' })
+vim.opt.completeopt = { 'popup', 'fuzzy', 'menuone', 'noselect', 'preview' }
 vim.opt.wildmenu = true
 vim.opt.wildignore:append({ '*.o', '*.a', '*.obj', '*.class', '*.s' })
 vim.opt.wildmode = { 'noselect:lastused', 'full' }
