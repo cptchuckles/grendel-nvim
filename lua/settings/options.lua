@@ -30,12 +30,12 @@ vim.api.nvim_create_autocmd('OptionSet', {
     end,
 })
 
+vim.o.pumheight = 12
 vim.o.pumblend = 0
 vim.o.pumborder = 'rounded'
 vim.o.winborder = 'rounded'
 
 -- editing settings
-vim.o.autocomplete = true
 vim.g.scrollspeed = 3
 vim.o.expandtab = true
 vim.o.tabstop = 4
@@ -44,10 +44,12 @@ vim.o.shiftwidth = 4
 vim.o.smartindent = true
 vim.opt.cinwords:append({ 'case', 'elif', 'match' })
 vim.opt.clipboard:append('unnamedplus')
-vim.opt.completeopt:append({ 'fuzzy', 'menu', 'menuone', 'noselect', 'preview' })
 
 -- completion settings
-vim.o.wildmenu = true
+vim.opt.autocomplete = true
+vim.opt.complete:append('o')
+vim.opt.completeopt:append({ 'fuzzy', 'menu', 'menuone', 'noselect', 'preview' })
+vim.opt.wildmenu = true
 vim.opt.wildignore:append({ '*.o', '*.a', '*.obj', '*.class', '*.s' })
 vim.opt.wildmode = { 'noselect:lastused', 'full' }
 vim.opt.wildoptions = { 'fuzzy', 'pum' }

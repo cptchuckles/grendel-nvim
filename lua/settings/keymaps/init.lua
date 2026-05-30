@@ -13,7 +13,7 @@ vim.keymap.set('n', 'j', 'gj', { desc = 'Travel wrapped lines like normal' })
 vim.keymap.set('n', 'k', 'gk', { desc = 'Travel wrapped lines like normal' })
 
 -- navigation
-vim.keymap.set('n', '<Leader>e', '<cmd>Lex<CR>', { desc = 'Open Net-Rw' })
+vim.keymap.set('n', '<Leader>e', function() vim.cmd.Lex(20) end, { desc = 'Open Net-Rw' })
 vim.keymap.set('n', '<C-n>', '<cmd>bnext<CR>', { desc = 'Go to next buffer' })
 vim.keymap.set('n', '<C-p>', '<cmd>bprev<CR>', { desc = 'Go to previous buffer' })
 vim.keymap.set('n', '<A-l>', '<cmd>ls<CR>:b', { desc = 'List buffers' })
@@ -46,10 +46,15 @@ vim.keymap.set('n', 'g/', [[<cmd>lvimgrep //gj %<CR><cmd>lopen<CR>]], { desc = '
 vim.keymap.set('n', '<A-i>', vim.diagnostic.open_float, { desc = 'Show floating diagnostic at cursor' })
 vim.keymap.set('n', '<leader>dd', vim.diagnostic.setqflist, { desc = 'Set Qickfix list with diagnostics' })
 
-vim.keymap.set('n', '<A-a>', vim.lsp.buf.code_action, { desc = 'Lsp code actions' })
-vim.keymap.set({ 'i', 'n' }, '<A-s>', vim.lsp.buf.signature_help, { desc = 'Lsp signature help' })
-
 -- autocommands
+vim.api.nvim_create_autocmd('LspAttach', {
+    group = vim.api.nvim_create_augroup('LspAttachAugroup', { clear = true }),
+    callback = function(ev)
+        vim.keymap.set('n', '<A-a>', vim.lsp.buf.code_action, { desc = 'Lsp code actions' })
+        vim.keymap.set({ 'i', 'n' }, '<A-s>', vim.lsp.buf.signature_help, { desc = 'Lsp signature help' })
+    end,
+})
+
 vim.api.nvim_create_autocmd('FileType', {
     group = vim.api.nvim_create_augroup('QuickCloseBuffers', { clear = true }),
     pattern = { 'help', 'netrw', 'qf' },
@@ -63,6 +68,7 @@ vim.api.nvim_create_autocmd('FileType', {
         end, { buffer = ev.buf, desc = 'Quick-close buffers for some filetypes' })
     end,
 })
+
 vim.api.nvim_create_autocmd('FileType', {
     group = vim.api.nvim_create_augroup('NetrwRemoveKeymaps', { clear = true }),
     pattern = { 'netrw' },
