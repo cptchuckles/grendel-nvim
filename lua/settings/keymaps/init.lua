@@ -41,7 +41,10 @@ vim.keymap.set('v', '<A-k>', [[:move '<-2<CR>gv=gv]], { desc = 'Move selected li
 vim.keymap.set('v', '<A-j>', [[:move '>+1<CR>gv=gv]], { desc = 'Move selected lines down' })
 vim.keymap.set('v', '>', '>gv', { desc = 'Indent visual selection' })
 vim.keymap.set('v', '<', '<gv', { desc = 'Un-indent visual selection' })
-vim.keymap.set('n', 'g/', [[<cmd>lvimgrep //gj %<CR><cmd>lopen<CR>]], { desc = 'Fill location list with search results' })
+vim.keymap.set('n', 'g*', function()
+    vim.cmd.lvimgrep('//gj', '%')
+    vim.cmd.lopen()
+end, { desc = 'Fill location list with search results' })
 
 vim.keymap.set('n', '<A-i>', vim.diagnostic.open_float, { desc = 'Show floating diagnostic at cursor' })
 vim.keymap.set('n', '<leader>dd', vim.diagnostic.setqflist, { desc = 'Set Qickfix list with diagnostics' })
