@@ -1,27 +1,20 @@
 local gh = function(path) return 'https://github.com/' .. path end
 
-vim.pack.add({
-    gh'nvim-lua/plenary.nvim',
-    gh'nvim-tree/nvim-web-devicons',
+local setup = function(package)
+    for _, pkg in ipairs(package[1]) do
+        if type(pkg) == "string" then
+            vim.pack.add({gh(pkg)})
+        else
+            pkg.src = gh(pkg.src)
+            vim.pack.add({pkg})
+        end
+    end
+    if package.config ~= nil then package.config() end
+end
 
-    gh'nvim-telescope/telescope.nvim',
-    gh'nvim-telescope/telescope-ui-select.nvim',
-    gh'nvim-telescope/telescope-fzf-native.nvim',
-    gh'folke/trouble.nvim',
-
-    gh'romus204/tree-sitter-manager.nvim',
-    { src = gh'nvim-treesitter/nvim-treesitter-textobjects', version = 'main', },
-
-    gh'neovim/nvim-lspconfig',
-    gh'mason-org/mason.nvim',
-    gh'mason-org/mason-lspconfig.nvim',
-    gh'seblyng/roslyn.nvim',
-
-    { src = gh'catppuccin/nvim', name = 'catppuccin-nvim', },
-    gh'folke/tokyonight.nvim',
-})
-
-require('plugins.telescope')
-require('plugins.trouble')
-require('plugins.tree-sitter')
-require('plugins.lsp')
+setup(require('plugins.core'))
+setup(require('plugins.telescope'))
+setup(require('plugins.trouble'))
+setup(require('plugins.tree-sitter'))
+setup(require('plugins.lsp'))
+setup(require('plugins.themes'))
