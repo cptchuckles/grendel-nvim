@@ -46,15 +46,23 @@ return {
             },
         })
 
-        vim.api.nvim_create_autocmd('LspAttach', {
-            group = vim.api.nvim_create_augroup('LspCompletionAugroup', { clear = true }),
-            callback = function(ev)
-                local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
-                -- Enable auto-completion. Note: Use CTRL-Y to select an item. |complete_CTRL-Y|
-                if client:supports_method('textDocument/completion') then
-                    vim.lsp.completion.enable(true, client.id, ev.buf, {autotrigger = true})
-                end
-            end,
-        })
+        local have_blink, blink = pcall(require, 'blink.cmp')
+        if have_blink then
+            vim.lsp.config('*', {
+                capabilities = blink.get_lsp_capabilities(
+                    vim.lsp.protocol.make_client_capabilities()
+                )
+            })
+        else
+            vim.api.nvim_create_autocmd('LspAttach', {
+                group = vim.api.nvim_create_augroup('LspCompletionAugroup', { clear = true }),
+                callback = function(ev)
+                    local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
+                    if client:supports_method('textDocument/completion') then
+                        vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
+                    end
+                end,
+            })
+        end
     end
 }
