@@ -25,6 +25,6 @@ return {
         vim.keymap.set('n', 'g*', function()
             vim.cmd.lvimgrep('//gj', '%')
             trouble.open({ mode = 'loclist' })
-        end, { desc = 'Send last search to qflist and open with Trouble' })
+        end, { desc = 'Send last search to loclist and open with Trouble' })
     end
 }
