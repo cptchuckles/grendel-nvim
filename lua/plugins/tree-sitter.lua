@@ -2,6 +2,7 @@ return {
     {
         'romus204/tree-sitter-manager.nvim',
         { src = 'nvim-treesitter/nvim-treesitter-textobjects', version = 'main' },
+        'HiPhish/rainbow-delimiters.nvim',
     },
 
     config = function()

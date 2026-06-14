@@ -3,6 +3,7 @@ return {
         'nvim-lua/plenary.nvim',
         'nvim-tree/nvim-web-devicons',
         'windwp/nvim-autopairs',
+        'NMAC427/guess-indent.nvim',
     },
 
     config = function()
@@ -14,5 +15,7 @@ return {
                 java = false,
             },
         })
+
+        require('guess-indent').setup()
     end
 }
