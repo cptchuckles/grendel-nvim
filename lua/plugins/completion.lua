@@ -11,7 +11,7 @@ return {
 
         require('blink.cmp').setup({
             enabled = function()
-                return not vim.tbl_contains({ 'text', 'markdown', }, vim.bo.filetype)
+                return not vim.tbl_contains({ 'text', 'markdown', 'csv', }, vim.bo.filetype)
             end,
 
             keymap = {
