@@ -5,6 +5,7 @@ return {
         'windwp/nvim-autopairs',
         'NMAC427/guess-indent.nvim',
         'lewis6991/gitsigns.nvim',
+        'hedyhli/outline.nvim',
     },
 
     config = function()
@@ -37,6 +38,13 @@ return {
                 vim.keymap.set('n', '<leader>gp', gs.preview_hunk, { buf = bufnr, desc = 'Git preview hunk' })
             end,
         })
+
+        require('outline').setup({
+            outline_window = { auto_jump = true },
+            auto_preview = true,
+            min_width = 80,
+        })
+        vim.keymap.set('n', '<leader>E', require('outline').open, { desc = 'Open symbol outline' })
 
         require('guess-indent').setup()
     end
