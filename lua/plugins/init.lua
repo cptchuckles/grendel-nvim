@@ -13,6 +13,7 @@ local setup = function(package)
 end
 
 setup(require('plugins.core'))
+setup(require('plugins.neotree'))
 setup(require('plugins.telescope'))
 setup(require('plugins.trouble'))
 setup(require('plugins.tree-sitter'))

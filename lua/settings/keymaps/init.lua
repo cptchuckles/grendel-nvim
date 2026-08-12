@@ -13,7 +13,6 @@ vim.keymap.set('n', 'j', 'gj', { desc = 'Travel wrapped lines like normal' })
 vim.keymap.set('n', 'k', 'gk', { desc = 'Travel wrapped lines like normal' })
 
 -- navigation
-vim.keymap.set('n', '<Leader>e', function() vim.cmd.Lex(20) end, { desc = 'Open Net-Rw' })
 vim.keymap.set('n', '<C-n>', '<cmd>bnext<CR>', { desc = 'Go to next buffer' })
 vim.keymap.set('n', '<C-p>', '<cmd>bprev<CR>', { desc = 'Go to previous buffer' })
 vim.keymap.set('n', '<A-l>', '<cmd>ls<CR>:b', { desc = 'List buffers' })
