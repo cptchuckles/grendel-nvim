@@ -8,6 +8,8 @@ return {
     },
 
     config = function()
+        -- Default languages from nvim-lspconfig
+
         vim.lsp.config('lua_ls', {
             settings = {
                 Lua = {
@@ -21,6 +23,16 @@ return {
                 },
             },
         })
+
+        vim.api.nvim_create_autocmd('FileType', {
+            group = vim.api.nvim_create_augroup('gdscript-lsp', { clear = true }),
+            pattern = 'gdscript',
+            callback = function()
+                vim.lsp.enable('gdscript', true)
+            end
+        })
+
+        -- Setup Mason
 
         require('mason').setup({
             registries = {
@@ -46,6 +58,8 @@ return {
                 'rust_analyzer',
             },
         })
+
+        -- LSP capabilities for all servers
 
         local have_blink, blink = pcall(require, 'blink.cmp')
         if have_blink then
