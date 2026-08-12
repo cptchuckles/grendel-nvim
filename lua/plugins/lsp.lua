@@ -4,6 +4,7 @@ return {
         'mason-org/mason.nvim',
         'mason-org/mason-lspconfig.nvim',
         'seblyng/roslyn.nvim',
+        'RRethy/vim-illuminate',
     },
 
     config = function()
