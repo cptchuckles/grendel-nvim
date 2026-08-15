@@ -40,6 +40,7 @@ vim.keymap.set('v', '<A-k>', [[:move '<-2<CR>gv=gv]], { desc = 'Move selected li
 vim.keymap.set('v', '<A-j>', [[:move '>+1<CR>gv=gv]], { desc = 'Move selected lines down' })
 vim.keymap.set('v', '>', '>gv', { desc = 'Indent visual selection' })
 vim.keymap.set('v', '<', '<gv', { desc = 'Un-indent visual selection' })
+vim.keymap.set('n', '#', '*NN', { desc = 'Find matches for # in forward order' })
 vim.keymap.set('n', 'g*', function()
     vim.cmd.lvimgrep('//gj', '%')
     vim.cmd.lopen()
