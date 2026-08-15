@@ -24,13 +24,7 @@ return {
             },
         })
 
-        vim.api.nvim_create_autocmd('FileType', {
-            group = vim.api.nvim_create_augroup('gdscript-lsp', { clear = true }),
-            pattern = 'gdscript',
-            callback = function()
-                vim.lsp.enable('gdscript', true)
-            end
-        })
+        vim.lsp.enable('gdscript', true)
 
         -- Setup Mason
 
