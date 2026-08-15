@@ -80,8 +80,10 @@ return {
             group = telescope_group,
             callback = function(ev)
                 vim.keymap.set('n', '<C-]>', builtins.lsp_definitions, { buffer = ev.buf, desc = 'Telescope lsp_definitions' })
-                vim.keymap.set('n', 'g<C-]>', builtins.lsp_references, { buffer = ev.buf, desc = 'Telescope lsp_definitions' })
                 vim.keymap.set('n', '<leader>di', builtins.lsp_implementations, { buffer = ev.buf, desc = 'Telescope lsp_implementations' })
+                vim.keymap.set('n', 'g<C-]>', function()
+                    builtins.lsp_references({ include_current_line = true })
+                end, { buffer = ev.buf, desc = 'Telescope lsp_definitions' })
             end,
         })
 
