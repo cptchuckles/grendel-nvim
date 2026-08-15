@@ -53,6 +53,8 @@ end, { desc = 'Fill location list with search results' })
 vim.keymap.set('n', '<A-i>', vim.diagnostic.open_float, { desc = 'Show floating diagnostic at cursor' })
 vim.keymap.set('n', '<leader>dd', vim.diagnostic.setqflist, { desc = 'Set Qickfix list with diagnostics' })
 
+vim.keymap.set('n', '<leader>G', ':tabnew+terminal<CR>iexec lazygit<CR>', { desc = 'Exec lazygit in a new tab' })
+
 -- autocommands
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('LspAttachAugroup', { clear = true }),
