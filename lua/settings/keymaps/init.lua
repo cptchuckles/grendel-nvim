@@ -61,6 +61,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(ev)
         vim.keymap.set('n', '<A-a>', vim.lsp.buf.code_action, { desc = 'Lsp code actions' })
         vim.keymap.set({ 'i', 'n' }, '<A-s>', vim.lsp.buf.signature_help, { desc = 'Lsp signature help' })
+        vim.keymap.set('v', '<leader>f', vim.lsp.buf.format, { desc = 'LSP Format selected lines' })
     end,
 })
 
