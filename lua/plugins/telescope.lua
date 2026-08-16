@@ -26,7 +26,7 @@ return {
                 path_display = { 'truncate' },
                 dynamic_preview_title = true,
 
-                winblend = 10,
+                winblend = 0,
                 layout_strategy = 'flex',
                 layout_config = {
                     flex = {
