@@ -46,7 +46,7 @@ return {
                 },
             },
             sources = {
-                default = { 'lsp', 'buffer', 'path', 'omni' },
+                default = { 'lsp', 'buffer', 'path', 'snippets', 'omni' },
             },
             snippets = { preset = 'luasnip' },
         })
