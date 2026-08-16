@@ -1,8 +1,8 @@
 local signs = {
-	{ name = "DiagnosticSignError", severity = vim.diagnostic.severity.ERROR, text = "󰅙" },
-	{ name = "DiagnosticSignWarn",  severity = vim.diagnostic.severity.WARN, text = "" },
-	{ name = "DiagnosticSignInfo",  severity = vim.diagnostic.severity.INFO, text = "" },
-	{ name = "DiagnosticSignHint",  severity = vim.diagnostic.severity.HINT, text = "󰌶" },
+	{ name = "DiagnosticSignError", severity = vim.diagnostic.severity.ERROR, text = " " },
+	{ name = "DiagnosticSignWarn",  severity = vim.diagnostic.severity.WARN, text = " " },
+	{ name = "DiagnosticSignInfo",  severity = vim.diagnostic.severity.INFO, text = " " },
+	{ name = "DiagnosticSignHint",  severity = vim.diagnostic.severity.HINT, text = "󰌶 " },
 }
 local signs_text = {}
 
