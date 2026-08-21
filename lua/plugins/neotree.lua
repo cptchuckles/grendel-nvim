@@ -21,13 +21,13 @@ return {
             },
         })
 
-        vim.keymap.set('n', '<leader>e', '<Cmd>Neotree action=show position=current toggle=true reveal_force_cwd<CR>', { desc = 'Toggle NeoTree'})
+        vim.keymap.set('n', '<leader>e', '<Cmd>Neotree action=show position=current toggle=true reveal_force_cwd<CR>', { desc = 'Toggle NeoTree' })
 
         vim.api.nvim_create_autocmd('ColorScheme', {
             group = vim.api.nvim_create_augroup('NeoTreeFixHighlights', { clear = true }),
             callback = function()
-                vim.api.nvim_set_hl(0, 'NeoTreeNormal', { link = 'NormalFloat', force = true})
-                vim.api.nvim_set_hl(0, 'NeoTreeNormalNC', { link = 'NormalFloat', force = true})
+                vim.api.nvim_set_hl(0, 'NeoTreeNormal', { link = 'NormalFloat', force = true })
+                vim.api.nvim_set_hl(0, 'NeoTreeNormalNC', { link = 'NormalFloat', force = true })
             end,
         })
     end
