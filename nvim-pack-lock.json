@@ -22,6 +22,10 @@
       "rev": "4da5ba201fbfcd886fa9ab34daae9472f564c0d9",
       "src": "https://github.com/scottmckendry/cyberdream.nvim"
     },
+    "dropbar.nvim": {
+      "rev": "808ba31cde89aec8833e9789f5e04557cd31c9e1",
+      "src": "https://github.com/Bekaboo/dropbar.nvim"
+    },
     "everforest-nvim": {
       "rev": "d235ca0aa6a29546e661a020e2618612acbbffbe",
       "src": "https://github.com/neanias/everforest-nvim"

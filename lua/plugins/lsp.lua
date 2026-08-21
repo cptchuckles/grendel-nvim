@@ -5,6 +5,7 @@ return {
         'mason-org/mason-lspconfig.nvim',
         'seblyng/roslyn.nvim',
         'RRethy/vim-illuminate',
+        'Bekaboo/dropbar.nvim',
     },
 
     config = function()
@@ -72,6 +73,12 @@ return {
                     end
                 end,
             })
+        end
+
+        -- Dropbar (breadcrumbs)
+        local have_dropbar, dropbar = pcall(require, 'dropbar.nvim')
+        if have_dropbar then
+            dropbar.setup({})
         end
     end
 }
