@@ -15,7 +15,11 @@ return {
             return
         end
 
-        neotree.setup({})
+        neotree.setup({
+            filesystem = {
+                hijack_netrw_behavior = 'open_current',
+            },
+        })
 
         vim.keymap.set('n', '<leader>e', '<Cmd>Neotree action=show position=current toggle=true reveal_force_cwd<CR>', { desc = 'Toggle NeoTree'})
 
