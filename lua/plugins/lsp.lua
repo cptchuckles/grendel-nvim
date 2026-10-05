@@ -3,13 +3,14 @@ return {
         'neovim/nvim-lspconfig',
         'mason-org/mason.nvim',
         'mason-org/mason-lspconfig.nvim',
-        'seblyng/roslyn.nvim',
         'RRethy/vim-illuminate',
         'Bekaboo/dropbar.nvim',
     },
 
     config = function()
         -- Default languages from nvim-lspconfig
+
+        vim.lsp.codelens.enable(false)
 
         vim.lsp.config('lua_ls', {
             settings = {
