@@ -5,6 +5,7 @@ return {
         'GustavEikaas/easy-dotnet.nvim',
     },
     config = function()
+        vim.env.PATH = vim.fn.expand("~/.dotnet/tools") .. ":" .. vim.env.PATH
         require('easy-dotnet').setup({
             picker = 'telescope',
             lsp = {
