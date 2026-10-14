@@ -12,5 +12,6 @@ return {
         'olivercederborg/poimandres.nvim',
         'oxfist/night-owl.nvim',
         'maxmx03/fluoromachine.nvim',
+        'riodelphino/darkplus.nvim',
     }
 }

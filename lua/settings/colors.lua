@@ -3,6 +3,7 @@ vim.g.clearbg = true
 vim.g.forcebg = {
     blue = true,
     darkblue = true,
+    darkplus = true,
     default = true,
     delek = true,
     habamax = true,
