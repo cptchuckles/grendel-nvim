@@ -55,16 +55,6 @@ vim.keymap.set('n', '<leader>dd', vim.diagnostic.setqflist, { desc = 'Set Qickfi
 
 vim.keymap.set('n', '<leader>G', ':tabnew+terminal<CR>iexec lazygit<CR>', { desc = 'Exec lazygit in a new tab' })
 
--- autocommands
-vim.api.nvim_create_autocmd('LspAttach', {
-    group = vim.api.nvim_create_augroup('LspAttachAugroup', { clear = true }),
-    callback = function(ev)
-        vim.keymap.set('n', '<A-a>', vim.lsp.buf.code_action, { desc = 'Lsp code actions' })
-        vim.keymap.set({ 'i', 'n' }, '<A-s>', vim.lsp.buf.signature_help, { desc = 'Lsp signature help' })
-        vim.keymap.set('v', '<leader>f', vim.lsp.buf.format, { desc = 'LSP Format selected lines' })
-    end,
-})
-
 vim.api.nvim_create_autocmd('FileType', {
     group = vim.api.nvim_create_augroup('QuickCloseBuffers', { clear = true }),
     pattern = { 'help', 'netrw', 'qf' },

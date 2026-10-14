@@ -76,6 +76,28 @@ return {
             })
         end
 
+        -- Formatting commands
+        vim.api.nvim_create_user_command('Format', function(opts)
+            local format_opts = { async = true }
+            if opts.range > 0 then
+                format_opts.range = {
+                    { opts.line1, 0 },
+                    { opts.line2, 0 },
+                }
+            end
+            vim.lsp.buf.format(format_opts)
+        end, { range = true })
+
+        -- keybind autocommands
+        vim.api.nvim_create_autocmd('LspAttach', {
+            group = vim.api.nvim_create_augroup('LspAttachAugroup', { clear = true }),
+            callback = function(ev)
+                vim.keymap.set({ 'n', 'v', 'x' }, '<leader>F', '<CMD>Format<CR>', { desc = 'LSP Format' })
+                vim.keymap.set('n', '<A-a>', vim.lsp.buf.code_action, { desc = 'Lsp code actions' })
+                vim.keymap.set({ 'i', 'n' }, '<A-s>', vim.lsp.buf.signature_help, { desc = 'Lsp signature help' })
+            end,
+        })
+
         -- Dropbar (breadcrumbs)
         local have_dropbar, dropbar = pcall(require, 'dropbar.nvim')
         if have_dropbar then
