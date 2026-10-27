@@ -39,7 +39,9 @@ end, { desc = 'Jump to prev diagnostic with float' })
 
 -- editing
 vim.keymap.set('n', '<A-j>', '<cmd>move .+1<CR>==', { desc = 'Move current line down' })
+vim.keymap.set('n', '<A-J>', 'yyp', { desc = 'Duplicate line down' })
 vim.keymap.set('n', '<A-k>', '<cmd>move .-2<CR>==', { desc = 'Move current line up' })
+vim.keymap.set('n', '<A-K>', 'yyP', { desc = 'Duplicate line up' })
 vim.keymap.set('v', '<A-k>', [[:move '<-2<CR>gv=gv]], { desc = 'Move selected lines up' })
 vim.keymap.set('v', '<A-j>', [[:move '>+1<CR>gv=gv]], { desc = 'Move selected lines down' })
 vim.keymap.set('v', '>', '>gv', { desc = 'Indent visual selection' })
